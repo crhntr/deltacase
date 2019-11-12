@@ -4,13 +4,15 @@ import "strings"
 
 func Camel(str string) string {
 	parts, out := slice(str), ""
-	if len(parts) > 0 {
-		out = parts[0]
-		if len(parts) > 1 {
-			for _, part := range parts[1:] {
-				out += strings.Title(part)
-			}
-		}
+	if len(parts) == 0 {
+		return ""
+	}
+	out = parts[0]
+	if len(parts) == 1 {
+		return out
+	}
+	for _, part := range parts[1:] {
+		out += strings.Title(part)
 	}
 	return out
 }
